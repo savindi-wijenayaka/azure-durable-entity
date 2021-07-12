@@ -8,7 +8,6 @@
       "direction": "in",
       "route": "entity/{entityName}/{entityKey}",
       "methods": [
-        "post",
         "get"
       ]
     },
