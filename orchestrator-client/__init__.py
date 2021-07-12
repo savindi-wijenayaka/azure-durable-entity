@@ -1,9 +1,5 @@
-# This function an HTTP starter function for Durable Functions.
-# Before running this sample, please:
-# - create a Durable orchestration function
-# - create a Durable activity function (default name is "Hello")
-# - add azure-functions-durable to requirements.txt
-# - run pip install -r requirements.txt
+# Author: Savindi Wijenayaka
+# Date: 13.07.2021
  
 import logging
 
