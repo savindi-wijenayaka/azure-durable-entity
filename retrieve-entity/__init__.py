@@ -10,6 +10,17 @@ import azure.functions as func
 
 
 async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    """This function starts up the orchestrator from an HTTP endpoint. It retrieves
+    the user requested entity state and returns it back as a HTTP response.
+
+    Args:
+        req (func.HttpRequest): An HTTP Request object, it can be used to parse URL
+        parameters and may carry payload.
+        starter (str): A JSON-formatted string describing the orchestration context
+
+    Returns:
+        func.HttpResponse: An HTTP Response object, containing the entity state
+    """
     client = df.DurableOrchestrationClient(starter)
     entity_name, entity_key = (
         req.route_params["entityName"],

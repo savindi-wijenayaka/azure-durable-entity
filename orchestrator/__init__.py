@@ -10,15 +10,14 @@ import azure.functions as func
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
     """This function provides the a simple implementation of an orchestrator
-    that signals and then calls a counter Durable Entity.
-    Parameters
-    ----------
-    context: DurableOrchestrationContext
-        This context has the past history and the durable orchestration API
-    Returns
-    -------
-    state
-        The state after applying the operation on the Durable Entity
+    that signals and then calls a avenger-scoreboard Durable Entity.
+
+    Args:
+        context (df.DurableOrchestrationContext): This context has the past 
+        history and the durable orchestration API
+
+    Returns:
+        state: The state after applying the operation on the Durable Entity
     """
     data = context._input
     data = json.loads(data)
