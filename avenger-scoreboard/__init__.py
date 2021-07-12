@@ -2,6 +2,7 @@
 # Date: 13.07.2021
 
 import logging
+
 import azure.durable_functions as df
 
 
@@ -19,5 +20,6 @@ def entity_function(context: df.DurableEntityContext):
         context.set_state(current_value)
     elif operation == "get":
         context.set_result(current_value)
+
 
 main = df.Entity.create(entity_function)

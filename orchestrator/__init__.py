@@ -1,11 +1,11 @@
 # Author: Savindi Wijenayaka
 # Date: 13.07.2021
 
-import logging
 import json
+import logging
 
-import azure.functions as func
 import azure.durable_functions as df
+import azure.functions as func
 
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
@@ -25,10 +25,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     logging.info(f"Input is: {data}")
     logging.info(f"Input type is: {type(data)}")
 
-
-    entityId = df.EntityId("avenger_scoreboard", data["avenger_name"])
+    entityId = df.EntityId("avenger-scoreboard", data["avenger_name"])
     context.signal_entity(entityId, data["opperation"], data)
     state = yield context.call_entity(entityId, "get")
     return state
+
 
 main = df.Orchestrator.create(orchestrator_function)
